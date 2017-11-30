@@ -17,6 +17,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
@@ -66,7 +67,7 @@ public class BonusPointsService {
 			public Predicate toPredicate(Root<BonusPoints> root,
 					CriteriaQuery<?> query, CriteriaBuilder builder) {
 
-				List<Order> orderlist = new ArrayList<Order>();
+				//List<Order> orderlist = new ArrayList<Order>();
 				List<Predicate> predicates = Lists.newArrayList();
 				
 				
@@ -101,7 +102,7 @@ public class BonusPointsService {
 				}
 				
 				//orderlist.add(builder.desc(root.get("update_time")));
-				query.orderBy(orderlist);
+				//query.orderBy(orderlist);
 				
 				Predicate p = builder.and(predicates.toArray(new Predicate[predicates.size()]));
 				return p;
@@ -109,10 +110,9 @@ public class BonusPointsService {
 			
 		};
 		
-		Pageable pageable = new PageRequest(pageno - 1, pagesize);
-		
+		Sort sort = new Sort(Direction.DESC, "updateTime");
+		Pageable pageable = new PageRequest(pageno - 1, pagesize,sort);
 		return bpd.findAll(s, pageable);//(s, pageable);
-	
 	}
 	
 	public Long countBPByEMPId(String empid){

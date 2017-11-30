@@ -32,8 +32,8 @@ public class RewardSetting implements Serializable {
 	private String dept_name;
 	private String reword_value;
 	private String setting_emp_name;
-	private Date created_time = new Date();
-	private Date update_time = new Date();
+	private Date createdTime = new Date();
+	private Date updateTime = new Date();
 	
 	@GeneratedValue(generator = "system-uuid")
 	@GenericGenerator(name = "system-uuid", strategy = "uuid2")
@@ -103,20 +103,6 @@ public class RewardSetting implements Serializable {
 	}
 
 	/**
-	 * @return the created_time
-	 */
-	public Date getCreated_time() {
-		return created_time;
-	}
-
-	/**
-	 * @return the update_time
-	 */
-	public Date getUpdate_time() {
-		return update_time;
-	}
-
-	/**
 	 * @param type_name the type_name to set
 	 */
 	public void setType_name(String type_name) {
@@ -170,20 +156,6 @@ public class RewardSetting implements Serializable {
 	 */
 	public void setSetting_emp_name(String setting_emp_name) {
 		this.setting_emp_name = setting_emp_name;
-	}
-
-	/**
-	 * @param created_time the created_time to set
-	 */
-	public void setCreated_time(Date created_time) {
-		this.created_time = created_time;
-	}
-
-	/**
-	 * @param update_time the update_time to set
-	 */
-	public void setUpdate_time(Date update_time) {
-		this.update_time = update_time;
 	}
 
 	/**
@@ -268,6 +240,22 @@ public class RewardSetting implements Serializable {
 	 */
 	public void setImprove_solution(String improve_solution) {
 		this.improve_solution = improve_solution;
+	}
+
+	public Date getCreatedTime() {
+		return createdTime;
+	}
+
+	public void setCreatedTime(Date createdTime) {
+		this.createdTime = createdTime;
+	}
+
+	public Date getUpdateTime() {
+		return updateTime;
+	}
+
+	public void setUpdateTime(Date updateTime) {
+		this.updateTime = updateTime;
 	}
 	
 }

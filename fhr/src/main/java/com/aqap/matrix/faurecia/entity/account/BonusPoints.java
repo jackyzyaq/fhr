@@ -35,8 +35,8 @@ public class BonusPoints implements Serializable {
 	private String productId;
 	private String productName;
 	private String orderId;
-	private Date created_time = new Date();
-	private Date update_time = new Date();
+	private Date createdTime = new Date();
+	private Date updateTime = new Date();
 	private int status;//1、提交 2、完成
 
 	@GeneratedValue(generator = "system-uuid")
@@ -121,20 +121,6 @@ public class BonusPoints implements Serializable {
 	}
 
 	/**
-	 * @return the created_time
-	 */
-	public Date getCreated_time() {
-		return created_time;
-	}
-
-	/**
-	 * @return the update_time
-	 */
-	public Date getUpdate_time() {
-		return update_time;
-	}
-
-	/**
 	 * @param name the name to set
 	 */
 	public void setName(String name) {
@@ -205,20 +191,6 @@ public class BonusPoints implements Serializable {
 	}
 
 	/**
-	 * @param created_time the created_time to set
-	 */
-	public void setCreated_time(Date created_time) {
-		this.created_time = created_time;
-	}
-
-	/**
-	 * @param update_time the update_time to set
-	 */
-	public void setUpdate_time(Date update_time) {
-		this.update_time = update_time;
-	}
-
-	/**
 	 * @return the status
 	 */
 	public int getStatus() {
@@ -286,6 +258,22 @@ public class BonusPoints implements Serializable {
 	 */
 	public void setImproveCode(String improveCode) {
 		this.improveCode = improveCode;
+	}
+
+	public Date getCreatedTime() {
+		return createdTime;
+	}
+
+	public void setCreatedTime(Date createdTime) {
+		this.createdTime = createdTime;
+	}
+
+	public Date getUpdateTime() {
+		return updateTime;
+	}
+
+	public void setUpdateTime(Date updateTime) {
+		this.updateTime = updateTime;
 	}
 	
 	

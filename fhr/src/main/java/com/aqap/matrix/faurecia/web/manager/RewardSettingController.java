@@ -137,7 +137,7 @@ public class RewardSettingController {
 			if(i != null && i.size() > 0) {
 				newone = i.get(0);
 				form.setId(newone.getId());
-				form.setUpdate_time(new Date());
+				form.setUpdateTime(new Date());
 				its.save(form);
 			}else {
 				its.save(form);

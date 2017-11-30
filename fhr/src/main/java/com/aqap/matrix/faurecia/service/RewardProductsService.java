@@ -15,6 +15,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
@@ -90,8 +91,8 @@ public class RewardProductsService {
 			}
 			
 		};
-		
-		Pageable pageable = new PageRequest(pageno - 1, pagesize);
+		Sort sort = new Sort(Direction.DESC, "updateTime");
+		Pageable pageable = new PageRequest(pageno - 1, pagesize,sort);
 		
 		return rpdao.findAll(s, pageable);//(s, pageable);
 	

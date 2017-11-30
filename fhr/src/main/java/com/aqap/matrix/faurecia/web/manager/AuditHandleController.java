@@ -201,8 +201,8 @@ public class AuditHandleController {
 		bp.setBPValues(1l);
 		bp.setType(1);
 		bp.setStatus(2);
-		bp.setCreated_time(new Date());
-		bp.setUpdate_time(new Date());
+		bp.setCreatedTime(new Date());
+		bp.setUpdateTime(new Date());
 		bp = this.bps.save(bp);
 		
 		logger.info(auditForm.getEMName()+" 提交合理化建议成功，并获取积分："+ bp.getId());
@@ -222,9 +222,10 @@ public class AuditHandleController {
 			HttpServletRequest request,HttpServletResponse response,String action) {
 		if(StringUtils.isNotEmpty(auditForm.getId())) {
 			AuditForm form = auditFromService.findOne(auditForm.getId());
-			/*if(form.getNextAuditEMPId().equals(form.getSubmitUserId()) && auditForm.getStatus() == 7) 
-				auditForm.setStatus(8);*/
-			
+			if(StringUtils.isNotEmpty(form.getNextAuditEMPId()) && 
+					form.getNextAuditEMPId().equals(form.getSubmitEMId()) && auditForm.getStatus() == 7) {
+				auditForm.setStatus(8);
+			}
 			switch (auditForm.getStatus()) {
 				case 2: //采纳，并指定实施部门
 					form.setLineManagerId(form.getNextAuditEMPId());
@@ -321,6 +322,11 @@ public class AuditHandleController {
 					form.setGeneralizaterId(auditForm.getGeneralizaterId());
 					form.setGeneralizerComment(auditForm.getGeneralizerComment());
 					form.setGeneralizaterName(auditForm.getGeneralizaterName());
+					form.setGeneralizaterDept(auditForm.getGeneralizaterDept());
+					form.setGeneralizaterDeptId(auditForm.getGeneralizaterDeptId());
+					form.setGeneralizationNum(auditForm.getGeneralizationNum());
+					form.setGeneralizerComment(auditForm.getGeneralizerComment());
+					
 					auditForm.setComment(auditForm.getGeneralizerComment());
 					auditForm.setAuditStep(6);
 					form = this.setNextData(auditForm,form);
@@ -338,8 +344,11 @@ public class AuditHandleController {
 		    node = auditNodeService.save(node); 
 		    logger.info(auditForm.getNextAuditEMPName()+" 审核合理化建议成功，节点ID为："+ node.getId());
 		    commonJSONResponse(null,true,response);
+		    
+		    return ;
 		}else {
 			commonJSONResponse(null,false,response);
+			return ;
 		}
 	}
 	

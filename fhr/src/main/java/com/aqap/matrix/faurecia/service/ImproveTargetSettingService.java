@@ -20,6 +20,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
@@ -163,7 +165,7 @@ public class ImproveTargetSettingService {
 				//orderlist.add(builder.desc(root.get("updateTime")));
 				//orderlist.add(builder.desc(root.get("createdTime")));
 				
-				query.orderBy(orderlist);
+				//query.orderBy(orderlist);
 				//query.where(in);
 				
 				Predicate p = builder.and(predicates.toArray(new Predicate[predicates.size()]));
@@ -171,8 +173,8 @@ public class ImproveTargetSettingService {
 			}
 			
 		};
-		
-		Pageable pageable = new PageRequest(pageno - 1, pagesize);
+		Sort sort = new Sort(Direction.DESC, "updateTime");
+		Pageable pageable = new PageRequest(pageno - 1, pagesize,sort);
 		
 		return this.itsDao.findAll(s, pageable);//(s, pageable);
 	

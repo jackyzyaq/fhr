@@ -10,20 +10,18 @@ import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
 import org.apache.commons.lang.StringUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.aqap.matrix.faurecia.dao.account.RewardSettingDao;
 import com.aqap.matrix.faurecia.entity.account.RewardSetting;
-import com.aqap.matrix.faurecia.service.manager.OperatelogService;
 import com.google.common.collect.Lists;
 
 /**
@@ -87,7 +85,7 @@ public class RewardSettingService {
 				}
 				
 				
-				query.orderBy(orderlist);
+				//query.orderBy(orderlist);
 				//query.where(in);
 				
 				Predicate p = builder.and(predicates.toArray(new Predicate[predicates.size()]));
@@ -95,8 +93,8 @@ public class RewardSettingService {
 			}
 			
 		};
-		
-		Pageable pageable = new PageRequest(pageno - 1, pagesize);
+		Sort sort = new Sort(Direction.DESC, "updateTime");
+		Pageable pageable = new PageRequest(pageno - 1, pagesize,sort);
 		
 		return rsdao.findAll(s, pageable);//(s, pageable);
 	
