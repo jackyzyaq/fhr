@@ -191,10 +191,8 @@ public class AuditFormService {
 					predicates.add(pendTime);
 				}*/
 				
-				
+				//query.groupBy(root.get("updateTime").as(String.class));
 				//orderlist.add(builder.desc(root.get("updateTime")));
-				//orderlist.add(builder.desc(root.get("createdTime")));
-				
 				query.orderBy(orderlist);
 				//query.where(in);
 				
@@ -203,8 +201,8 @@ public class AuditFormService {
 			}
 			
 		};
-		
-		Pageable pageable = new PageRequest(pageno - 1, pagesize);
+		Sort sort = new Sort(Direction.DESC, "updateTime");
+		Pageable pageable = new PageRequest(pageno - 1, pagesize,sort);
 		return auditFormDao.findAll(s, pageable);//(s, pageable);
 	}
 	
