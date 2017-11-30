@@ -1,0 +1,110 @@
+﻿@charset "utf-8";
+html{
+	margin:0;
+	padding:0;
+}
+body{
+	background-color:#ededed;
+	color:#b5b5b5;
+	font-family:"宋体",arial;
+	font-size:12px;
+	font-style:normal;
+	margin:0;
+	padding:0;
+}
+fieldset,img,table{border:none;}
+
+.header{
+	background:url("../images/login/header_bg.png") top repeat;
+	font-size: 26px;
+	color: #ffffff;
+	font-weight: bold;
+	height: 160px;
+	line-height:160px;
+
+}
+ 
+.content{
+	background:url("../images/login/login_bg.png") no-repeat top center;
+	width:423px;
+	height:366px;
+	border:1px solid #ededed
+}
+.title{
+	background:url("../images/login/member_title.png") no-repeat top left;
+	margin-top:30px;
+	width:229px;
+	height:36px;
+	line-height:36px;
+	text-align: left;
+	text-indent: 50px;
+	color:#7c7c7c;
+	font-size: 24px;
+	font-weight: bold;
+}
+.input{
+	margin: 0 auto 11px;
+	width: 237px;
+}
+
+.input_all{
+	border:none;
+	color:#555;
+	font-size:14px;
+	line-height:30px;
+	width:237px;
+	height:30px;
+	outline:none;
+	padding: 10px 0 10px 46px;
+}
+.name{
+	background:url("../images/login/input_name.png") no-repeat top left
+}
+.name_now{
+	background:url("../images/login/input_name_hover.png") no-repeat top left
+}
+.password{
+	background:url("../images/login/input_password.png") no-repeat top left
+}
+.password_now{
+	background:url("../images/login/input_password_hover.png") no-repeat top left
+}
+.enter{
+	margin-top:15px
+}
+.button{
+	background:url("../images/login/button.png") no-repeat center;
+	border:none;
+	cursor:pointer;
+	margin:0 auto;
+	width:150px;
+	height:55px;
+	outline: none;
+}
+.checkbox{
+	font-size:12px;
+	margin:0 auto;
+	width:237px;
+	height:30px
+}
+.checkbox input{
+	display:block;
+	float:left;
+	margin-right:4px
+}
+.checkbox span{
+	display:block;
+	float:left;
+	xheight:20px;
+	line-height:20px;
+	*line-height:22px
+}
+
+.error_tip{
+	width:237px;
+	height: 20px;
+	color: red;
+	text-align: left;
+	line-height: 20px;
+	font-size: 14px;
+}

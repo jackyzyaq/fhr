@@ -1,0 +1,14 @@
+.yqstdform label {float: left;width: 100px;text-align: right;padding: 5px 20px 0 0;}
+.yqstdform span.field,.yqstdform div.field {margin-left: 0;}
+.yqstdform div {	margin: 10px 0;}
+.yqstdform .stdformbutton { margin-left: 180px; }
+
+.yqstdform2 p,.yqstdform2 div.par { border: 1px solid #ddd; background: #fcfcfc; margin: 0; border-top: 0; }
+.yqstdform2 div.terms { border: 0; background: none; }
+.yqstdform2 p:first-child, .yqstdform2 div.par:first-child { border-top: 1px solid #ddd; }
+.yqstdform div.par { overflow: hidden; }
+.yqstdform2 label { display: inline-block; padding: 10px; vertical-align: top; text-align: left; font-weight: bold; }
+.yqstdform2 label.error { margin-left: 0; padding: 0; }
+.yqstdform2 label small { font-size: 5px; color: #999; display: block; font-weight: normal; line-height: 16px; }
+.yqstdform2 span.field, .yqstdform2 div.field { margin-left: 120px; display: block; background: #fff; padding: 5px; border-left: 1px solid #ddd; }
+.yqstdform2 p { margin: 0px 0 !important; }

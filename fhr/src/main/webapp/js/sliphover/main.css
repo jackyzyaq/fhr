@@ -1,0 +1,33 @@
+body{
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+
+#docs-navbar{
+	margin-top:50px;
+}
+
+
+#container{
+	width: 1870px;
+	margin: 0 auto;
+}
+
+.demo li {
+    list-style-type: none;
+    display: inline-block;
+}
+li img {
+    height: 100px;
+    border: 3x solid #999;
+    margin: 3px;
+}
+
+.highlight{
+	overflow: auto;
+}
+
+.heart{
+	color: red;
+}
+

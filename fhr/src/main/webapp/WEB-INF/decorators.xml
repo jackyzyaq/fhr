@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<decorators defaultdir="/WEB-INF/layout/">
+	<excludes>
+		<pattern>/logon</pattern>
+		<pattern>/logon/v2</pattern>
+		<pattern>/static/**</pattern>
+		<pattern>/improve/**</pattern>
+		
+	</excludes>
+	<decorator name="default" page="index.jsp">
+		<pattern>/manager/**</pattern>
+	</decorator>
+	
+	<decorator name="wxlayout" page="wx/wxlayout.jsp">
+		<pattern>/wx/**</pattern>
+	</decorator>
+</decorators>
